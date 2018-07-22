@@ -1,0 +1,295 @@
+############################################################
+
+sudo su root
+passwd
+
+sed -i "s/PermitRootLogin no/PermitRootLogin yes/g" "/etc/ssh/sshd_config"
+sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" "/etc/ssh/sshd_config"
+sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g" "/etc/ssh/sshd_config"
+
+/etc/init.d/ssh reload
+
+############################################################
+
+#------------------------------------------------------------------------------#
+#                   OFFICIAL DEBIAN REPOS                    
+#------------------------------------------------------------------------------#
+
+###### Debian Main Repos
+deb http://deb.debian.org/debian/ stable main contrib non-free
+deb-src http://deb.debian.org/debian/ stable main contrib non-free
+
+deb http://deb.debian.org/debian/ stable-updates main contrib non-free
+deb-src http://deb.debian.org/debian/ stable-updates main contrib non-free
+
+deb http://deb.debian.org/debian-security stable/updates main
+deb-src http://deb.debian.org/debian-security stable/updates main
+
+deb http://ftp.debian.org/debian stretch-backports main
+deb-src http://ftp.debian.org/debian stretch-backports main
+
+############################################################
+
+apt-get install -y dnsutils
+dig @8.8.8.8 www.twitter.com
+
+############################################################
+
+apt-get update
+apt-get upgrade
+
+apt-get install apt-transport-https
+apt-get install dirmngr
+apt-get install dnsutils
+apt-get install libapache2-mod-wsgi-py3
+apt-get install python3-pip
+apt-get install default-libmysqlclient-dev
+
+pip3 install virtualenv
+pip3 install mysqlclient
+
+wget http://software.virtualmin.com/gpl/scripts/install.sh; /bin/sh install.sh
+wget -O install.sh http://software.virtualmin.com/cgi-bin/install.cgi?serial=5569642\&key=MGMCedHdCU; /bin/sh install.sh
+
+############################################################
+
+cat /etc/passwd (List All Users)
+cat /etc/group (List All Group)
+getent passwd | awk -F: '{print $1}' | while read name; do groups $name; done
+compgen -A function -abck
+
+############################################################
+
+
+sudo lsblk
+sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+sudo mkdir -p /mnt/disks/sdb
+sudo mount -o discard,defaults /dev/sdb /mnt/disks/sdb
+sudo chmod a+w /mnt/disks/sdb
+sudo cp /etc/fstab /etc/fstab.backup
+sudo blkid /dev/sdb
+sudo echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/sdb ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+sudo cat /etc/fstab
+cd /mnt/disks/sdb
+
+############################################################
+
+www.
+ftp.
+mail.
+sql.
+api.
+vpn.
+
+############################################################
+
+www.
+  apache settings
+  django
+  letsencrypt
+  munin
+
+############################################################
+
+ftp.
+  vsftpd ftp server settings
+
+############################################################
+
+mail.
+  postfix setings
+  gcloud setings
+
+############################################################
+
+sql.
+  mysql settings
+    SELECT User, Host, Password FROM mysql.user;
+    GRANT ALL PRIVILEGES ON *.* TO 'zeus'@'%' IDENTIFIED BY 'Pz314159276' WITH GRANT OPTION;
+    Navicat SSH Tunnel Connect 127.0.0.1:3306 >>> server:22
+    https://cloud.google.com/solutions/mysql-remote-access
+
+############################################################
+
+vpn.
+  open vpn vpn server settings
+
+############################################################
+
+Virtualmin >>> Install Scripts >>> Available Scripts
+Django 1.9.7
+RoundCube 1.3.4
+  spam
+    DKIM
+    SPF
+    PTR
+
+############################################################
+
+Virtualmin >>> Server Configuration >>> Menage SSL Certificate >>> Let's Encrypt
+
+############################################################
+
+apt-get update
+apt-get upgrade
+apt-get install python3-pip libapache2-mod-wsgi-py3
+pip3 install virtualenv
+
+############################################################
+
+apt install curl wget apt-transport-https dirmngr
+apt-get install dnsutils
+
+############################################################
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'xobodox',
+        'USER': 'xobodox',
+        'PASSWORD': 'Pi314159276',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+############################################################
+
+(VENV) root@c:/home/xobodox/public_html/xobodox.com# python3 manage.py migrate
+System check identified some issues:
+
+############################################################
+
+WARNINGS:
+?: (mysql.W002) MySQL Strict Mode is not set for database connection 'default'
+        HINT: MySQL's Strict Mode fixes many data integrity problems in MySQL, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/2.0/ref/databases/#mysql-sql-mode
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+############################################################
+
+Virtualmin >>> Server Configuration >>> Menage SSL Certificate >>> Let's Encrypt
+
+
+
+#------------------------------------------------------------------------------#
+#                   OFFICIAL DEBIAN REPOS                    
+#------------------------------------------------------------------------------#
+
+###### Debian Main Repos
+deb http://deb.debian.org/debian/ stable main contrib non-free
+deb-src http://deb.debian.org/debian/ stable main contrib non-free
+
+deb http://deb.debian.org/debian/ stable-updates main contrib non-free
+deb-src http://deb.debian.org/debian/ stable-updates main contrib non-free
+
+deb http://deb.debian.org/debian-security stable/updates main
+deb-src http://deb.debian.org/debian-security stable/updates main
+
+deb http://ftp.debian.org/debian stretch-backports main
+deb-src http://ftp.debian.org/debian stretch-backports main
+
+############################################################
+
+apt-get update
+apt-get upgrade
+
+############################################################
+
+apt-get install default-libmysqlclient-dev
+source VENV/bin/activate
+pip3 install mysqlclient
+
+############################################################
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'xobodox',
+        'USER': 'xobodox',
+        'PASSWORD': 'Pi314159276',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+############################################################
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+############################################################
+
+(VENV) root@c:/home/xobodox/public_html/xobodox.com# python3 manage.py migrate
+System check identified some issues:
+
+############################################################
+
+WARNINGS:
+?: (mysql.W002) MySQL Strict Mode is not set for database connection 'default'
+        HINT: MySQL's Strict Mode fixes many data integrity problems in MySQL, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/2.0/ref/databases/#mysql-sql-mode
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+############################################################
+
+cd /home/aratarikan/public_html/
+mkdir website
+cd website
+virtualenv VENV
+source VENV/bin/activate
+pip3 install mezzanine
+mezzanine-project main .
+python3 manage.py createdb
+python3 manage.py collectstatic
+python3 manage.py collecttemplates
+
+check bind settings
+check apache settings
+
+check permitions
+check allowed host
+
+############################################################
+
+git config --global user.email "SerdarARIKAN@gmail.com"
+git config --global user.name = "Serdar ARIKAN"
+
+Git GUI >>> Help >>> Show SSH Key >>> Genarate Key
+
+https://github.com/settings/keys >>> New SSH key
+
+Settings >>> Version Control >>> GitHub >>> Login
+
+############################################################
