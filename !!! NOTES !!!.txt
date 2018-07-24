@@ -293,3 +293,18 @@ https://github.com/settings/keys >>> New SSH key
 Settings >>> Version Control >>> GitHub >>> Login
 
 ############################################################
+
+pip install --upgrade autopep8
+Open external tool: Preference → Tools → External Tools → +
+
+Name：Autopep8 (Whatever name)
+
+Tools settings:
+Program：autopep8 （Make sure you have installed）
+Arguments: --in-place --aggressive --aggressive $FilePath$
+Working directory: $ProjectFileDir$
+
+Advanced Options:
+Output filters：$FILE_PATH$\:$LINE$\:$COLUMN$\:.*
+
+############################################################
