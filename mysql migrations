@@ -9,4 +9,4 @@ my.ini >>> log-bin = 0
 MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion - DBMS connection keep-alive interval (in seconds): 6000
                                                                    - DBMS connection read time out (in seconds): 300
                                                                    - DBMS connection time out (in seconds): 600
-mysql --user="username" --database="databasename" --password="yourpassword" < "filepath"
+mysql --user="root" --database="cautolog.com" --password="********" < "filepath"
