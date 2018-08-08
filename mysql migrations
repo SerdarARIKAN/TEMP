@@ -1,3 +1,11 @@
-WEBMIN > Servers > MySQL Database Server > MySQL Server Configuration > Databases files directory > /mnt/disks/sdb/mysql
 mkdir /mnt/disks/sdb/mysql/
 rsync -av /var/lib/mysql /mnt/disks/sdb
+WEBMIN > Servers > MySQL Database Server > MySQL Server Configuration > Databases files directory > /mnt/disks/sdb/mysql
+WEBMIN > Servers > MySQL Database Server > MySQL Server Configuration > MySQL server listening address > Any
+WEBMIN > Servers > MySQL Database Server > User Permissions > root - Any - None - All
+my.ini >>> innodb_buffer_pool_size=256MB
+my.ini >>> secure-file-priv="D:/igorma/projects/tecdoc/bin/debug"
+my.ini >>> log-bin = 0
+MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion - DBMS connection keep-alive interval (in seconds): 6000
+                                                                   - DBMS connection read time out (in seconds): 300
+                                                                   - DBMS connection time out (in seconds): 600
