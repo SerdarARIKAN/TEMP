@@ -1,0 +1,3 @@
+WEBMIN > Servers > MySQL Database Server > MySQL Server Configuration > Databases files directory > /mnt/disks/sdb/mysql
+mkdir /mnt/disks/sdb/mysql/
+rsync -av /var/lib/mysql /mnt/disks/sdb
