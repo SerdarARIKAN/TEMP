@@ -39,4 +39,6 @@ systemctl restart mysql
 
 mysql -u <root> -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Pi314159276' WITH GRANT OPTION;"
 
-mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql
+# mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql
+# nohup command &
+# ps aux
