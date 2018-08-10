@@ -31,7 +31,7 @@ pip3 install virtualenv
 
 mkdir /mnt/sd/b/mysql/
 rsync -av /var/lib/mysql /mnt/sd/b
-sed -i "s#datadir = /var/lib/mysql/#datadir = /mnt/sd/mysql/#g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
+sed -i "s#datadir\t\t= /var/lib/mysql#datadir\t\t= /mnt/sd/mysql#g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
 
 sed -i "/^bind-address/d" "/etc/mysql/mariadb.conf.d/50-server.cnf"
 
