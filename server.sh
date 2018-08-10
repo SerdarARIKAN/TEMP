@@ -33,6 +33,8 @@ mkdir /mnt/sd/b/mysql/
 rsync -av /var/lib/mysql /mnt/sd/b
 sed -i "s#datadir\t\t= /var/lib/mysql#datadir\t\t= /mnt/sd/mysql#g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
 
+#innodb_data_file_path = ibdata1:10M:autoextend:max:512M
+
 sed -i "/^bind-address/d" "/etc/mysql/mariadb.conf.d/50-server.cnf"
 
 systemctl restart mysql
@@ -40,5 +42,9 @@ systemctl restart mysql
 mysql -u <root> -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Pi314159276' WITH GRANT OPTION;"
 
 # mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql
+# mysql --user=root --database=cautolog --password=Pi314159276 < "SET GLOBAL connect_timeout=600;"
+# mysql --user=root --database=cautolog --password=Pi314159276 < "SET GLOBAL interactive_timeout=60;"
+
+
 # nohup command &
 # ps aux
