@@ -10,14 +10,14 @@ MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion - DBMS connec
 
 ##################################################
 
-# mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql
-
-																									mysql --user=root --database=cautolog --password=Pi314159276 < "SET GLOBAL connect_timeout=600;"
-																									mysql --user=root --database=cautolog --password=Pi314159276 < "SET GLOBAL interactive_timeout=60;"
-ERROR 1114 (HY000) at line 707: The table 'passanger_car_pds' is full								innodb_data_file_path = ibdata1:10M:autoextend
+													SET GLOBAL connect_timeout=600;
+													SET GLOBAL interactive_timeout=60;
+ERROR 1114 (HY000) at line 707: The table 'passanger_car_pds' is full					innodb_data_file_path = ibdata1:10M:autoextend
 ERROR 1034 (HY000) at line 979: Incorrect key file for table 'article_links'; try to repair it		tmpdir		= /tmp
 
-# nohup command &
+##################################################
+
+# nohup mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql &
 # ps aux
 
 ##################################################
