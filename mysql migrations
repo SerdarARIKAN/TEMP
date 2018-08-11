@@ -62,3 +62,7 @@ Bingo! And this should display the path for the new tmpdir
 # ps aux
 
 ##################################################
+
+https://stackoverflow.com/questions/34777755/how-to-config-django-using-pymysql-as-driver
+
+##################################################
