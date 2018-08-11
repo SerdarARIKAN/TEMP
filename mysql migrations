@@ -18,7 +18,7 @@ ERROR 1034	tmpdir		= /tmp
 
 ##################################################
 
-# nohup mysql --user=root --database=cautolog --password=Pi314159276 < /mnt/sd/b/tecdoc2017q2/tecdoc.sql &
+# nohup mysql --user=root --database=cautolog --password=******** < /mnt/sd/b/tecdoc2017q2/tecdoc.sql &
 # ps aux
 
 ##################################################
