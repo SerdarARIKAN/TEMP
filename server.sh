@@ -35,6 +35,7 @@ rsync -av /var/lib/mysql /mnt/sd/b
 # (/etc/mysql/mariadb.conf.d/50-server.cnf)
 # datadir   = /var/lib/mysql >>> datadir    = /mnt/sd/mysql 
 # bind-address    = 127.0.0.1 >>>
-# mysql -u root -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Pi314159276' WITH GRANT OPTION;"
+
+mysql -u root -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '********' WITH GRANT OPTION;"
 
 systemctl restart mysql
