@@ -1,12 +1,15 @@
 ##################################################
 
-		connect_timeout=31536000			>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
-		interactive_timeout=31536000			>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
-		
-ERROR 1114	innodb_data_file_path = ibdata1:64M:autoextend	>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+/etc/mysql/mariadb.conf.d/50-server.cnf
+[mysqld]
 
-ERROR 1034	tmp_table_size = 32G				>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
-		max_heap_table_size = 32G			>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+		connect_timeout=31536000
+		interactive_timeout=31536000
+		
+ERROR 1114	innodb_data_file_path = ibdata1:64M:autoextend
+
+ERROR 1034	tmp_table_size = 32G
+		max_heap_table_size = 32G
 
 ##################################################
 
