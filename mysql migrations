@@ -1,29 +1,26 @@
 ##################################################
 
-my.ini >>> innodb_buffer_pool_size=256MB
-my.ini >>> secure-file-priv="D:/igorma/projects/tecdoc/bin/debug"
-my.ini >>> log-bin = 0
+		connect_timeout=1728000				>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+		interactive_timeout=1728000			>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+		
+ERROR 1114	innodb_data_file_path = ibdata1:10M:autoextend	>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
 
-MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion 
-	- DBMS connection keep-alive interval (in seconds): 6000
-	- DBMS connection read time out (in seconds): 300
-	- DBMS connection time out (in seconds): 600
+ERROR 1034	tmp_table_size = 32G				>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+		max_heap_table_size = 32G			>> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
 
 ##################################################
 
-		SET GLOBAL connect_timeout=600;
-		SET GLOBAL interactive_timeout=60;
-ERROR 1114	innodb_data_file_path = [mysqld] ibdata1:10M:autoextend >> /etc/mysql/mariadb.conf.d/50-server.cnf
-ERROR 1034	tmp_table_size = 32G >> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
-		max_heap_table_size = 32G >> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
-		
+SHOW VARIABLES like 'connect_timeout';
+SHOW VARIABLES like 'interactive_timeout';
+
+SHOW VARIABLES like 'innodb_data_file_path';
+
+SHOW VARIABLES like 'tmp_table_size';
+SHOW VARIABLES like 'max_heap_table_size';
+
 ##################################################
 
 # nohup mysql --user=root --database=cautolog --password=******** < /mnt/sd/b/tecdoc2017q2/tecdoc.sql &
 # ps aux
-
-##################################################
-
-https://stackoverflow.com/questions/34777755/how-to-config-django-using-pymysql-as-driver
 
 ##################################################
