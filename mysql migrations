@@ -13,49 +13,10 @@ MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion
 
 		SET GLOBAL connect_timeout=600;
 		SET GLOBAL interactive_timeout=60;
-ERROR 1114	innodb_data_file_path = ibdata1:10M:autoextend
-ERROR 1034	tmpdir		= /tmp
-
-##################################################
-
-Visit this blog for detailed steps with apparmor and my.cnf configurations, http://sharadchhetri.com/2014/12/27/change-path-tmpdir-mysql-server-ubuntu/
-
-First check your tmp dir folder
-
-SHOW VARIABLES LIKE 'tmpdir';
-Create a backup of my.cnf
-
-sudo cp -pv /etc/mysql/my.cnf /etc/mysql/my.cnf.`date +%F`.bak
-Create a new directory to hold the files
-
-sudo mkdir /mysql_tmp_dir
-Make mysql user the owner for the directory sudo chown mysql:mysql /mysql_tmp_dir
-
-edit my.cnf
-
-replace,
-
- sudo vim /etc/mysql/my.cnf
- tmpdir = /tmp 
-with
-
- tmpdir = /mysql_tmp_dir
-edit apparmor config for mysqld
-
-sudo vi /etc/apparmor.d/usr.sbin.mysqld
-add lines,
-
-/mysql_tmp_dir r,  
-/mysql_tmp_dir rw
-restart apparmor and mysql
-
-sudo service apparmor restart
-sudo service mysql restart
-To check if the changes worked fine,
-
-SHOW VARIABLES LIKE 'tmpdir';
-Bingo! And this should display the path for the new tmpdir
-
+ERROR 1114	innodb_data_file_path = ibdata1:10M:autoextend >> /etc/mysql/mariadb.conf.d/50-server.cnf
+ERROR 1034	SET GLOBAL tmp_table_size = 1G;
+		SET GLOBAL max_heap_table_size = 1G;
+		
 ##################################################
 
 # nohup mysql --user=root --database=cautolog --password=******** < /mnt/sd/b/tecdoc2017q2/tecdoc.sql &
