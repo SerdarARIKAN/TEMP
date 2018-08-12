@@ -13,9 +13,9 @@ MySQL Workbench >>> Edit - Preferences - SQL Editor - MySQL Sesion
 
 		SET GLOBAL connect_timeout=600;
 		SET GLOBAL interactive_timeout=60;
-ERROR 1114	innodb_data_file_path = ibdata1:10M:autoextend >> /etc/mysql/mariadb.conf.d/50-server.cnf
-ERROR 1034	SET GLOBAL tmp_table_size = 1G;
-		SET GLOBAL max_heap_table_size = 1G;
+ERROR 1114	innodb_data_file_path = [mysqld] ibdata1:10M:autoextend >> /etc/mysql/mariadb.conf.d/50-server.cnf
+ERROR 1034	tmp_table_size = 32G >> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
+		max_heap_table_size = 32G >> [mysqld] /etc/mysql/mariadb.conf.d/50-server.cnf
 		
 ##################################################
 
