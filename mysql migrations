@@ -3,8 +3,11 @@
 /etc/mysql/mariadb.conf.d/50-server.cnf
 [mysqld]
 
-		connect_timeout=31536000
-		interactive_timeout=31536000
+		innodb_read_io_threads = 64
+		innodb_write_io_threads = 64
+
+		connect_timeout = 31536000
+		interactive_timeout = 31536000
 		
 ERROR 1114	innodb_data_file_path = ibdata1:18446744073709551615:autoextend
 
