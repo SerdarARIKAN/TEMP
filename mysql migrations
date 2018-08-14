@@ -14,13 +14,14 @@ innodb_buffer_pool_size = 8589934592
 
 ##################################################
 
+SHOW VARIABLES like 'innodb_read_io_threads';
+SHOW VARIABLES like 'innodb_write_io_threads';
 SHOW VARIABLES like 'connect_timeout';
 SHOW VARIABLES like 'interactive_timeout';
-
 SHOW VARIABLES like 'innodb_data_file_path';
-
 SHOW VARIABLES like 'tmp_table_size';
 SHOW VARIABLES like 'max_heap_table_size';
+SHOW VARIABLES like 'innodb_buffer_pool_size';
 
 ##################################################
 
