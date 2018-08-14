@@ -3,14 +3,14 @@
 /etc/mysql/mariadb.conf.d/50-server.cnf
 [mysqld]
 
-innodb_read_io_threads = 16
-innodb_write_io_threads = 16
+innodb_read_io_threads = 4
+innodb_write_io_threads = 4
 connect_timeout = 31536000
 interactive_timeout = 31536000
 innodb_data_file_path = ibdata1:3221225472:autoextend
 tmp_table_size = 18446744073709551615
 max_heap_table_size = 18446744073709551615
-innodb_buffer_pool_size = 8589934592
+innodb_buffer_pool_size = 4294967296
 
 ##################################################
 
