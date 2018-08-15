@@ -45,7 +45,7 @@ pip3 install virtualenv
 [mysqld]
 
 # bind-address    = 127.0.0.1
-datadir   = /var/sd/b/mysql
+datadir   = /mnt/sd/b/mysql
 innodb_read_io_threads = 4
 innodb_write_io_threads = 4
 connect_timeout = 31536000
