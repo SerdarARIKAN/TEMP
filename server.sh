@@ -45,26 +45,33 @@ pip3 install virtualenv
 [mysqld]
 
 # bind-address    = 127.0.0.1
-datadir   = /mnt/sd/b/mysql
+
 innodb_read_io_threads = 4
 innodb_write_io_threads = 4
+
 connect_timeout = 31536000
 interactive_timeout = 31536000
-innodb_data_file_path = ibdata1:3221225472:autoextend
+
 tmp_table_size = 18446744073709551615
 max_heap_table_size = 18446744073709551615
+
 innodb_buffer_pool_size = 4294967296
+innodb_data_file_path = ibdata1:3221225472:autoextend
 
 ##################################################
 
 SHOW VARIABLES like 'innodb_read_io_threads';
 SHOW VARIABLES like 'innodb_write_io_threads';
+
 SHOW VARIABLES like 'connect_timeout';
 SHOW VARIABLES like 'interactive_timeout';
-SHOW VARIABLES like 'innodb_data_file_path';
+
 SHOW VARIABLES like 'tmp_table_size';
 SHOW VARIABLES like 'max_heap_table_size';
+
 SHOW VARIABLES like 'innodb_buffer_pool_size';
+SHOW VARIABLES like 'innodb_data_file_path';
+
 SHOW STATUS
 
 ##################################################
@@ -75,6 +82,11 @@ mysql -u root -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '**
 
 mkdir /mnt/sd/b/mysql/
 rsync -av /var/lib/mysql /mnt/sd/b
+
+/etc/mysql/mariadb.conf.d/50-server.cnf
+[mysqld]
+
+datadir   = /mnt/sd/b/mysql
 
 ##################################################
 
