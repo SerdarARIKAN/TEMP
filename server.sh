@@ -58,6 +58,8 @@ max_heap_table_size = 18446744073709551615
 innodb_buffer_pool_size = 4294967296
 innodb_data_file_path = ibdata1:3221225472:autoextend
 
+https://dba.stackexchange.com/questions/64252/innodb-engine-is-not-loading-after-tuning-parameters
+
 ##################################################
 
 SHOW VARIABLES like 'innodb_read_io_threads';
@@ -72,7 +74,7 @@ SHOW VARIABLES like 'max_heap_table_size';
 SHOW VARIABLES like 'innodb_buffer_pool_size';
 SHOW VARIABLES like 'innodb_data_file_path';
 
-SHOW STATUS
+SHOW STATUS;
 
 ##################################################
 
