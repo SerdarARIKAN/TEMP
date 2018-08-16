@@ -26,7 +26,7 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/sd/b ext4 discard,defaults
 
 apt-get update
 apt-get upgrade
-apt-get install python3-pip libapache2-mod-wsgi-py3 curl wget apt-transport-https dirmngr dnsutils default-libmysqlclient-dev git
+apt-get install python3-pip libapache2-mod-wsgi-py3 curl wget apt-transport-https dirmngr dnsutils default-libmysqlclient-dev git htop
 
 ##################################################
 
@@ -56,9 +56,7 @@ tmp_table_size = 18446744073709551615
 max_heap_table_size = 18446744073709551615
 
 innodb_buffer_pool_size = 4294967296
-innodb_data_file_path = ibdata1:3221225472:autoextend
-
-https://dba.stackexchange.com/questions/64252/innodb-engine-is-not-loading-after-tuning-parameters
+innodb_data_file_path = ibdata1:12M:autoextend
 
 ##################################################
 
