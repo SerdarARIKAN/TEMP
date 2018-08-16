@@ -72,7 +72,7 @@ SHOW VARIABLES like 'max_heap_table_size';
 SHOW VARIABLES like 'innodb_buffer_pool_size';
 SHOW VARIABLES like 'innodb_data_file_path';
 
-SHOW STATUS;
+SHOW PROCESSLIST;
 
 ##################################################
 
