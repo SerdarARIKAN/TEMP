@@ -55,8 +55,10 @@ interactive_timeout = 31536000
 tmp_table_size = 18446744073709551615
 max_heap_table_size = 18446744073709551615
 
-innodb_buffer_pool_size = 4294967296
+innodb_buffer_pool_size = 4294967295
 innodb_data_file_path = ibdata1:12M:autoextend
+
+join_buffer_size = 4294967295
 
 ##################################################
 
