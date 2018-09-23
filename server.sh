@@ -100,3 +100,15 @@ nohup mysql --user=root --database=cautolog --password=******** < /mnt/sd/b/tecd
 ps aux
 
 ##################################################
+
+wget https://git.io/vpn -O openvpn-install.sh
+chmod 755 openvpn-install.sh
+./openvpn-install.sh
+
+
+iptables -S
+iptables -t nat -I POSTROUTING -s 10.164.0.0/24 -o eth0 -j MASQUERADE
+iptables -t nat -L
+apt-get install iptables-persistent
+
+##################################################
