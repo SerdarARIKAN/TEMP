@@ -101,10 +101,9 @@ ps aux
 
 ##################################################
 
-wget https://git.io/vpn -O openvpn-install.sh
-chmod 755 openvpn-install.sh
-./openvpn-install.sh
+wget https://git.io/vpn -O openvpn-install.sh; chmod 755 openvpn-install.sh; ./openvpn-install.sh
 
+##################################################
 
 iptables -S
 iptables -t nat -I POSTROUTING -s 10.164.0.0/24 -o eth0 -j MASQUERADE
