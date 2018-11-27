@@ -118,9 +118,9 @@ iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
 
 ##################################################
 
-sudo nano /etc/sysctl.conf
+nano /etc/sysctl.conf
 net.ipv4.conf.default.forwarding=1
-sudo sysctl -p
+sysctl -p
 
 ##################################################
 
@@ -130,5 +130,11 @@ select tun0
 ##################################################
 
 https://pi-hole.net/pages-to-test-ad-blocking-performance/
+
+##################################################
+
+nano /etc/openvpn/server.conf
+push "dhcp-option DNS 10.164.0.3"
+#push "dhcp-option DNS 8.8.8.8"
 
 ##################################################
