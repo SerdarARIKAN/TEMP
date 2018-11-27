@@ -138,3 +138,9 @@ push "dhcp-option DNS 10.164.0.3"
 #push "dhcp-option DNS 8.8.8.8"
 
 ##################################################
+
+systemctl restart openvpn
+vs
+service openvpn restart
+
+##################################################
