@@ -105,9 +105,30 @@ wget https://git.io/vpn -O openvpn-install.sh; chmod 755 openvpn-install.sh; ./o
 
 ##################################################
 
-iptables -S
-iptables -t nat -I POSTROUTING -s 10.164.0.0/24 -o eth0 -j MASQUERADE
-iptables -t nat -L
-apt-get install iptables-persistent
+iptables --flush
+iptables --table nat --flush
+iptables --delete-chain
+iptables --table nat --delete-chain
+
+##################################################
+
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o tun0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
+
+##################################################
+
+sudo nano /etc/sysctl.conf
+net.ipv4.conf.default.forwarding=1
+sudo sysctl -p
+
+##################################################
+
+curl -sSL https://install.pi-hole.net | bash
+select tun0
+
+##################################################
+
+https://pi-hole.net/pages-to-test-ad-blocking-performance/
 
 ##################################################
