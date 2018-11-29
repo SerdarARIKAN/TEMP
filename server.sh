@@ -126,6 +126,7 @@ sysctl -p
 
 curl -sSL https://install.pi-hole.net | bash
 select tun0
+pihole -a -p
 
 ##################################################
 
