@@ -106,7 +106,6 @@ windows mysql django connections
 
 https://stackoverflow.com/questions/51146117/installing-mysqlclient-in-python-3-6-in-windows
 https://stackoverflow.com/questions/26866147/mysql-python-install-error-cannot-open-include-file-config-win-h
-https://stackoverflow.com/questions/26866147/mysql-python-install-error-cannot-open-include-file-config-win-h
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 
 ############################################################
