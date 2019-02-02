@@ -26,7 +26,7 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/sd/b ext4 discard,defaults
 
 apt-get update
 apt-get upgrade
-apt-get install python3-pip libapache2-mod-wsgi-py3 curl wget apt-transport-https dirmngr dnsutils default-libmysqlclient-dev git htop
+apt-get install apt-transport-https dirmngr git curl wget htop dnsutils libapache2-mod-wsgi-py3 python3-pip default-libmysqlclient-dev
 
 ##################################################
 
