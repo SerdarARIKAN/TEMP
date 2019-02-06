@@ -3,7 +3,7 @@
 # nano /etc/postfix/main.cf
 # #default_transport = error
 # #relay_transport = error
-# relayhost = [smtp.sendgrid.net]:2525
+# relayhost = smtp.sendgrid.net:2525
 # smtp_tls_security_level = encrypt
 # smtp_sasl_auth_enable = yes
 # smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
@@ -12,8 +12,8 @@
 
 ##################################################
 
-echo [smtp.sendgrid.net]:2525 [YOUR_SMTP_LOGIN]:[YOUR_SMTP_PASSWORD] >> /etc/postfix/sasl_passwd
-echo [smtp.sendgrid.net]:2525 apikey:[YOUR_API_KEY] >> /etc/postfix/sasl_passwd
+echo smtp.sendgrid.net:2525 YOUR_SMTP_LOGIN:YOUR_SMTP_PASSWORD >> /etc/postfix/sasl_passwd
+echo smtp.sendgrid.net:2525 apikey:YOUR_API_KEY >> /etc/postfix/sasl_passwd
 
 ##################################################
 
