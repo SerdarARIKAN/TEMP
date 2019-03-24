@@ -171,6 +171,7 @@ echo         "m.$name.$tdl.	IN	A	$(dig +short myip.opendns.com @resolver1.opendn
 echo         "localhost.$name.$tdl.	IN	A	$(dig +short myip.opendns.com @resolver1.opendns.com)" >> "/var/lib/bind/$name.$tdl.hosts"
 echo         "webmail.$name.$tdl.	IN	A	$(dig +short myip.opendns.com @resolver1.opendns.com)" >> "/var/lib/bind/$name.$tdl.hosts"
 echo         "admin.$name.$tdl.	IN	A	$(dig +short myip.opendns.com @resolver1.opendns.com)" >> "/var/lib/bind/$name.$tdl.hosts"
+echo         "mail.$name.$tdl.	IN	A	$(dig +short myip.opendns.com @resolver1.opendns.com)" >> "/var/lib/bind/$name.$tdl.hosts"
 echo         "$name.$tdl.	IN	MX	5	$(dig +short myip.opendns.com @resolver1.opendns.com)" >> "/var/lib/bind/$name.$tdl.hosts"
 echo         "$name.$tdl.	IN	TXT	\"v=spf1 a mx a:$name.$tdl ip4:$(dig +short myip.opendns.com @resolver1.opendns.com) ip4:$(dig +short myip.opendns.com @resolver1.opendns.com) ?all\"" >> "/var/lib/bind/$name.$tdl.hosts"
 echo         ""
