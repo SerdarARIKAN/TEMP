@@ -10,13 +10,31 @@
 - [ ] `pgrep –l ‘^dd$’`
 
 ### POST INSTALL
+#### WiFi Setup
 - [ ] `echo "iface wlp5s1 inet dhcp" >> "/etc/network/interfaces"`
 - [ ] `echo "wpa-ssid SAS2.4Ghz" >> "/etc/network/interfaces"`
 - [ ] `echo "wpa-psk ********" >> "/etc/network/interfaces"`
 - [ ] `ip link set wlp5s1 up`
 - [ ] `ifup wlp5s1`
-- [ ] `apt-get install firmware-realtek firmware-misc-nonfree intel-microcode kde-plasma-desktop plasma-nm firefox-esr chromium`
+#### Base Apps Install
+- [ ] `apt-get update`
+- [ ] `apt-get upgrade`
+- [ ] `apt-get install firmware-realtek firmware-misc-nonfree intel-microcode kde-plasma-desktop plasma-nm firefox-esr chromium latte-dock`
+#### sudo Settings
 - [ ] `echo "user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/user`
+#### WiFi ReSetup
 - [ ] `sed -i "s#iface wlp5s1 inet dhcp# #g" "/etc/network/interfaces"`
 - [ ] `sed -i "s#wpa-ssid SAS2.4Ghz# #g" "/etc/network/interfaces"`
 - [ ] `sed -i "s#wpa-psk ********# #g" "/etc/network/interfaces"`
+#### Apps Install
+##### Atom Install
+- [ ] `wget https://atom-installer.github.com/v1.54.0/atom-amd64.deb?s=1610567452&ext=.deb`
+- [ ] `sudo apt install ./atom-amd64.deb`
+##### VirtualBox Install
+- [ ] `wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -`
+- [ ] `echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list`
+- [ ] `sudo apt-get update`
+- [ ] `sudo apt-get upgrade`
+- [ ] `sudo apt-get install virtualbox-6.0`
+- [ ] ``
+- [ ] ``
