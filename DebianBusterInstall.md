@@ -1,1 +1,1 @@
--[]vi /etc/network
+-[ ]
