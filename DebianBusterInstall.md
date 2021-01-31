@@ -45,5 +45,6 @@
 - [ ] `sed -i "s#wpa-ssid SAS2.4Ghz# #g" "/etc/network/interfaces"`
 - [ ] `sed -i "s#wpa-psk ********# #g" "/etc/network/interfaces"`
 ---
-####
-- [ ] ``
+#### GRUB Conf
+- [ ] `sudo sed -i "s#GRUB_TIMEOUT=5#GRUB_TIMEOUT=0#g" "/etc/default/grub"
+`
