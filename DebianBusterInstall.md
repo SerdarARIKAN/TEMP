@@ -48,3 +48,9 @@
 #### GRUB Conf
 - [ ] `sudo sed -i "s#GRUB_TIMEOUT=5#GRUB_TIMEOUT=0#g" "/etc/default/grub"
 `
+
+---
+### OpenVPN
+---
+- [ ] `sudo apt-get install openvpn`
+- [ ] `sudo openvpn --config /path/to/config.ovpn`
