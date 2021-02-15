@@ -21,7 +21,9 @@
 #### Base Apps Install
 - [ ] `apt-get update`
 - [ ] `apt-get upgrade`
-- [ ] `apt-get install firmware-realtek firmware-misc-nonfree intel-microcode kde-plasma-desktop plasma-nm firefox-esr chromium latte-dock`
+- [ ] `apt-get install firmware-realtek firmware-misc-nonfree intel-microcode kde-plasma-desktop plasma-nm firefox-esr chromium latte-dock python3-distutils
+`
+
 
 ##### Atom Install
 - [ ] `wget https://atom-installer.github.com/v1.54.0/atom-amd64.deb?s=1610567452&ext=.deb`
