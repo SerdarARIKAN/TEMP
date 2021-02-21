@@ -94,3 +94,13 @@ arm_64bit=1
 - [ ] `sudo apt-get update`
 - [ ] `sudo apt-get upgrade`
 - [ ] `sudo apt-get install kde-plasma-desktop plasma-nm chromium`
+
+#### PostInstall Settings
+```
+KDEWallet Close
+Breeze Dark Theme
+Latte Dock Settings
+Desktop Behavior
+Desktop Animations
+Disables Activaties
+```
