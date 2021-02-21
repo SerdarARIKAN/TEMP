@@ -28,7 +28,6 @@
 - [ ] `apt-get install firmware-realtek firmware-misc-nonfree intel-microcode kde-plasma-desktop plasma-nm firefox-esr chromium latte-dock python3-distutils
 `
 
-
 ##### Atom Install
 - [ ] `wget https://atom-installer.github.com/v1.54.0/atom-amd64.deb?s=1610567452&ext=.deb`
 - [ ] `sudo apt install ./atom-amd64.deb`
@@ -61,8 +60,9 @@
 - [ ] `sudo apt-get install openvpn`
 - [ ] `sudo openvpn --config /path/to/config.ovpn`
 
-
+---
 ## RASPBERRY PI OS
+---
 
 ### img - SDCard
 
