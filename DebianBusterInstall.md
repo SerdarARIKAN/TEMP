@@ -76,8 +76,10 @@
 
 - [ ] `reboot`
 
-> /boot/config.txt - [pi4]
-> arm_64bit=1
+```
+/boot/config.txt - [pi4]
+arm_64bit=1
+```
 
 - [ ] `sudo su root`
 - [ ] `passwd`
