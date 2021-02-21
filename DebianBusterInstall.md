@@ -1,3 +1,7 @@
+---
+## DEBIAN BUSTER
+---
+
 ### DOWNLOAD
 - [ ] `wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.7.0-amd64-netinst.iso`
 ---
@@ -56,3 +60,15 @@
 ---
 - [ ] `sudo apt-get install openvpn`
 - [ ] `sudo openvpn --config /path/to/config.ovpn`
+
+---
+## RASPBERRY PI OS
+---
+---
+### img - SDCard
+---
+SDCard to img
+- [ ] `dd if=/dev/sdc of=sdimage.img bs=4M` status=progress
+
+img to SDCard
+- [ ] `dd if=sdimage.img of=/dev/sdc bs=4M` status=progress
