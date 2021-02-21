@@ -76,8 +76,8 @@
 
 - [ ] `reboot`
 
-- [ ] `/boot/config.txt - [pi4]`
-- [ ] `arm_64bit=1`
+> /boot/config.txt - [pi4]
+> arm_64bit=1
 
 - [ ] `sudo su root`
 - [ ] `passwd`
@@ -86,7 +86,7 @@
 - [ ] `adduser user`
 - [ ] `echo "user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/user`
 
-- [ ] `reboot
+- [ ] `reboot`
 
 - [ ] `sudo apt-get update`
 - [ ] `sudo apt-get upgrade`
