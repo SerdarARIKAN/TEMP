@@ -65,7 +65,7 @@
 ### img - SDCard
 
 ##### SDCard to img
-- [ ] `dd if=/dev/sdc of=sdimage.img bs=4M` status=progress
+- [ ] `dd if=/dev/sdc of=sdimage.img bs=4M status=progress`
 
 #### img to SDCard
-- [ ] `dd if=sdimage.img of=/dev/sdc bs=4M` status=progress
+- [ ] `dd if=sdimage.img of=/dev/sdc bs=4M status=progress`
