@@ -72,22 +72,22 @@
 #### img to SDCard
 - [ ] `dd if=sdimage.img of=/dev/sdX bs=4M status=progress conv=fsync`
 
-rpi-update
+- [ ] `rpi-update`
 
-reboot
+- [ ] `reboot`
 
-/boot/config.txt - [pi4]
-arm_64bit=1
+- [ ] `/boot/config.txt - [pi4]`
+- [ ] `arm_64bit=1`
 
-sudo su root
-passwd
-userdel -r pi
+- [ ] `sudo su root`
+- [ ] `passwd`
+- [ ] `userdel -r pi`
 
-adduser user
-echo "user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/user
+- [ ] `adduser user`
+- [ ] `echo "user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/user`
 
-reboot
+- [ ] `reboot
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install kde-plasma-desktop plasma-nm chromium
+- [ ] `sudo apt-get update`
+- [ ] `sudo apt-get upgrade`
+- [ ] `sudo apt-get install kde-plasma-desktop plasma-nm chromium`
