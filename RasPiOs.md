@@ -67,14 +67,12 @@ System Settings >>> Input Devices >>> Keyboard >>> Layouts >>> Configure Layouts
 Map >>> tr >>> Move Up
 ```
 
-
 ```
-KDEWallet Close
-Breeze Dark Theme
-Latte Dock Settings
-Desktop Behavior
-Desktop Animations
-Disables Activaties
+KDE WALLET
+Wallet Management Tool >>> Settings >>> Configure Wallet >>> Enable the KDE wallet subsystem
 ```
 
-- [ ] ``
+```
+```
+
+- [ ] `kwriteconfig5`
