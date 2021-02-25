@@ -21,18 +21,27 @@
 
 ### 64Bit
 - [ ] `rpi-update`
-- [ ] `reboot`
 ```
 /boot/config.txt - [pi4]
 arm_64bit=1
 ```
+- [ ] `reboot`
 
 ### Base Apps Install
 - [ ] `sudo apt-get update`
 - [ ] `sudo apt-get upgrade`
 - [ ] `sudo apt-get install kde-plasma-desktop plasma-nm latte-dock chromium`
 
+### NM Settings
+- [ ] `echo "nohook wpa_supplicant" >> /etc/dhcpcd.conf`
+
 ### PostInstall Settings
+```
+System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
+reboot
+```
+
+
 ```
 KDEWallet Close
 Breeze Dark Theme
@@ -41,3 +50,5 @@ Desktop Behavior
 Desktop Animations
 Disables Activaties
 ```
+
+- [ ] ``
