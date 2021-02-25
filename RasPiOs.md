@@ -38,7 +38,9 @@ arm_64bit=1
 ### PostInstall Settings
 ```
 System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
-reboot
+```
+```
+System Settings >>> Fonts >>> Adjust All Fonts >>> Font style = Bold >>> Size = 12 >>> OK
 ```
 
 
