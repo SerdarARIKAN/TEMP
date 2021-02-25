@@ -37,10 +37,34 @@ arm_64bit=1
 
 ### PostInstall Settings
 ```
+THEME
+System Settings >>> Workspace Theme >>> Look And Feel >>> Breeze Dark >>> Apply
+```
+
+```
+FONTS
+System Settings >>> Fonts >>> Adjust All Fonts >>> Font style = Bold >>> Size = 12 >>> OK
+```
+
+```
+BORDERS
+System Settings >>> Application Style >>> Window Decorations >>> Border Size = No Borders
+```
+
+```
+WINDOWS PLACEMENT
+System Settings >>> Window Management >>> Window Behavior >>> Advanced >>> Placement >>> Centered
+```
+
+```
+SCREEN SCALE
 System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
 ```
+
 ```
-System Settings >>> Fonts >>> Adjust All Fonts >>> Font style = Bold >>> Size = 12 >>> OK
+KEYBOARD
+System Settings >>> Input Devices >>> Keyboard >>> Layouts >>> Configure Layouts >>> Add >>> Layout = Turkish >>> Variant = Turkish (intl., with dead keys) >>> OK
+Map >>> tr >>> Move Up
 ```
 
 
