@@ -57,8 +57,13 @@ System Settings >>> Window Management >>> Window Behavior >>> Advanced >>> Place
 ```
 
 ```
-SCREEN SCALE
-System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
+Auto Login
+Startup and Shutdown >>> Login Screen (SDDM) >>> Advanced >>> Auto Login >>> User = user >>> Relogin after quit
+```
+
+```
+KDE WALLET
+Wallet Management Tool >>> Settings >>> Configure Wallet >>> Enable the KDE wallet subsystem
 ```
 
 ```
@@ -68,8 +73,8 @@ Map >>> tr >>> Move Up
 ```
 
 ```
-KDE WALLET
-Wallet Management Tool >>> Settings >>> Configure Wallet >>> Enable the KDE wallet subsystem
+SCREEN SCALE
+System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
 ```
 
 ```
