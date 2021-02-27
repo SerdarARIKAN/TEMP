@@ -57,3 +57,11 @@
 ### OpenVPN
 - [ ] `sudo apt-get install openvpn`
 - [ ] `sudo openvpn --config /path/to/config.ovpn`
+
+### Video Background
+[smartvideowallpaper.tar.gz](https://github.com/SerdarARIKAN/TEMP/files/6055140/smartvideowallpaper.tar.gz)
+- [ ] `kpackagetool5 -t Plasma/Wallpaper -i smartvideowallpaper.tar.gz`
+- [ ] `sudo apt-get install gstreamer1.0-libav gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly`
+
+
+
