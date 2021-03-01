@@ -76,6 +76,13 @@ Map >>> tr >>> Move Up
 SCREEN SCALE
 System Settings >>> Display and Monitor >>> Scale Display >>> Scale = 1.2 >>> OK
 ```
+cd ~/Downloads
+git clone https://github.com/adhec/plasma_tweaks.git
+mv ~/Downloads/plasma_tweaks/SmartVideoWallpaper/smartvideowallpaper ~/Downloads
+tar -czvf smartvideowallpaper.tar.gz  ./smartvideowallpaper
+kpackagetool5 -t Plasma/Wallpaper -i smartvideowallpaper.tar.gz
+rm -rf ./plasma_tweaks
+rm -rf ./smartvideowallpaper*
 
 ```
 ```
