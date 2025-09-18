@@ -1,98 +1,84 @@
-# 🚀 Sunucu Konfigürasyonu Özet
-
-Bu doküman, Google Cloud Compute Engine üzerinde çalışacak, tüm servisleri, domainleri, PXE/iPXE ve nested virtualization ile Windows 11 VM’i içeren tam konfigürasyonu özetler.
+# 🌐 Sunucu Konfigürasyonu ve Yerel PC Hazırlıkları
 
 ---
 
-## 🖥️ 1. Sunucu Altyapısı
+## 1️⃣ Sunucu Altyapısı
 
-- **Platform:** Google Cloud Compute Engine  
-- **Makine Tipi:** `n1-standard-4` (4 vCPU, 15 GB RAM)  
-- **Disk:** 256 GB SSD  
-- **İşletim Sistemi:** Debian (stabil)  
-- **Özellikler:**  
-  - Nested virtualization aktif → Windows 11 ve diğer VM’ler  
-  - Statik IP → domainlerle eşleşecek  
-  - Firewall: HTTP(S), VPN, PXE/TFTP portları açık  
-
----
-
-## 🌐 2. Domain ve Erişim
-
-- **Ana Domain:** `gᴏᴑgle.com` → Dashboard, WordPress ve mail  
-- **Alt Domainler:**  
-  - `serdararikan.com` → WordPress + mail  
-  - `aratarikan.com` → WordPress + mail  
-- **Ana Sayfa / Dashboard:** `https://gᴏᴑgle.com/`  
-  - HTTP Basic Auth koruması  
-  - Erişim logları NGINX tarafından kaydedilir  
-- **Reverse Proxy + SSL:**  
-  - NGINX + Let’s Encrypt  
-  - Path veya subdomain tabanlı yönlendirme:  
-    - `/guac` → Guacamole  
-    - `/pihole` → Pi-hole  
-    - `/meet` → Jitsi Meet  
-    - `/vpn` → OpenVPN / PiVPN Web  
-    - `/portainer` → Portainer  
-    - `/netdata` → Netdata  
-    - `/nextcloud` → Nextcloud  
-    - `/serdararikan` → WordPress  
-    - `/aratarikan` → WordPress  
-    - `/` veya subdomain → Ana domain WordPress  
+- **Platform:** Google Cloud Compute Engine
+- **Makine Tipi:** n1-standard-4 (4 vCPU, 15 GB RAM)
+- **Disk:** 256 GB SSD
+- **OS:** Debian (Nested Virtualization destekli)
+- **Nested Virtualization:** Etkin, Windows 11 ve Linux VM’leri çalıştırabilir
+- **Network:** Özel ağ, HTTPS/HTTP portları yönlendirilmiş
+- **Backup:** Disk snapshot ve Nextcloud üzerinde yedekleme
 
 ---
 
-## 🛠️ 3. Servisler ve Kullanım Amaçları
+## 2️⃣ Domain ve Erişim
 
-| 🔹 Servis | 🎯 Amaç | 🌐 Path | ⚠️ Kısıtlamalar | 💡 Dikkat Edilecek Hususlar |
-|-----------|---------|---------|----------------|----------------------------|
-| **Dashboard** | Tüm servislerin merkezi erişimi | `/` | HTTP Basic Auth ile korunmalı | Girişler loglanmalı; linkler doğru yönlendirmeli |
-| **Guacamole** | Uzak masaüstü (Windows/Linux) | `/guac` | RAM/CPU sınırlı | Nested virtualization VM’leri; SSL aktif |
-| **Pi-hole** | DNS filtreleme | `/pihole` | Host DNS portu ile çakışmamalı | Web UI şifresi güçlü olmalı |
-| **OpenVPN + PiVPN Web** | Güvenli VPN erişimi | `/vpn` | 3–4 kullanıcı için optimize | UDP 1194 açık olmalı; Web UI üzerinden kullanıcı yönetimi |
-| **Jitsi Meet** | Video konferans | `/meet` | 3–4 kullanıcıdan fazla yük performansı düşürür | SSL sertifikası aktif |
-| **Nextcloud** | Dosya paylaşımı, ISO/IMG, mail erişimi | `/nextcloud` | ISO/IMG disk alanı tüketir | PXE/iPXE entegrasyonu; mail için IMAP/SMTP; SSL |
-| **Portainer** | Docker yönetimi | `/portainer` | Docker socket erişimi | Ana sayfa auth ile korunmalı |
-| **Netdata** | Sistem/Container performansı izleme | `/netdata` | CPU/RAM yükü | Container ve sistem performansı izlenmeli |
-| **PXE/iPXE** | ISO/IMG network boot | `/isos` / Nextcloud linki | ISO doğrudan boot çoğu zaman mümkün değil | DHCP + TFTP container kurulmalı; menü ile seçim |
-| **Nested Virtualization (Windows 11 VM)** | Windows 11 çalıştırmak | - | CPU/RAM sınırlı | Guacamole ile erişim; PXE/iPXE veya ISO yükleme |
-| **WordPress (serdararikan.com)** | Domain web sitesi | `/serdararikan` | Kaynak yoğun | Veritabanı container ile entegre; SSL aktif; güncelleme yapılmalı |
-| **WordPress (aratarikan.com)** | Domain web sitesi | `/aratarikan` | Kaynak yoğun | Veritabanı container ile entegre; SSL aktif |
-| **WordPress (gᴏᴑgle.com)** | Ana domain web sitesi | `/` | Kaynak yoğun | Veritabanı container ile entegre; SSL aktif |
-| **Mail Sunucuları** | Kendi domain mail yönetimi | - | MX/SPF/DKIM/SPF gerektirir | Docker mail server veya Postfix/Dovecot; Nextcloud Mail entegrasyonu |
+- **Ana Domain:** `gᴏᴑgle.com`
+- **Ek Domainler:** `serdararikan.com`, `aratarikan.com`
+- **Güvenlik:**
+  - Tüm ana sayfa erişimleri kullanıcı adı + parola ile korunacak
+  - Girişler loglanacak
+- **Ana Sayfa:** 
+  - Tüm servislerin linklerini barındıran bir portal
+  - Linkler aracılığıyla servis erişimi sağlanacak
 
 ---
 
-## ⚡ 4. Cloud Kaynak Önerisi (Minimum)
+## 3️⃣ Servisler ve Kullanım Amaçları
 
-- **vCPU:** 4  
-- **RAM:** 15 GB  
-- **Disk:** 256 GB SSD  
-- **Ağ:** Statik IP, domain ve firewall uyumlu  
-
----
-
-## 🔄 5. Özet Akış
-
-1. Kullanıcı `https://gᴏᴑgle.com/` → Basic Auth giriş  
-2. Ana sayfa üzerinden tüm servisler erişilebilir  
-3. PXE/iPXE menüsü → ISO/IMG network boot  
-4. Nested virtualization içinde Windows 11 VM çalışır → Guacamole ile erişim  
-5. WordPress siteleri kendi domainlerinden çalışır  
-6. Domain mail sunucuları aktif → Nextcloud Mail app ile erişim  
-7. Nextcloud → Dosya paylaşımı, ISO/IMG barındırma ve mail istemcisi  
+| Servis | Amaç | Kısıtlamalar / Püf Noktalar |
+|--------|------|-----------------------------|
+| **Guacamole** | Web üzerinden VM ve container’lara erişim | Windows 11 ve Linux VM’ler için RDP/VNC desteği, performans ağ hızına bağlı |
+| **Pi-hole** | Reklam ve tracker engelleme | DNS portu (53) yönlendirilmiş olmalı |
+| **OpenVPN / PiVPN Web** | VPN bağlantısı | Maksimum 3 istemci, kullanıcı adı/parola ile koruma |
+| **Jitsi Meet** | Video konferans | Sunucu CPU yükü yüksek olabilir, Docker container üzerinden çalıştırılır |
+| **Nextcloud** | Dosya depolama, ISO/IMG sunumu | ISO/IMG’ler için HTTP/HTTPS üzerinden erişim; PXE/iPXE gerektirmez |
+| **Portainer** | Docker container yönetimi | Yönetici yetkisi gerektirir |
+| **Netdata** | Sistem monitoring | Ücretsiz, GUI üzerinden performans analizi |
+| **WordPress + Mail Server** | `serdararikan.com`, `aratarikan.com`, `gᴏᴑgle.com` | Her domain kendi mail sunucusuna sahip; Nextcloud ile mail erişimi mümkün |
+| **PXE/iPXE Server** | Eski donanımda boot | GCE üzerinde lokal ağ gerektirir; çoğu zaman WinPE veya HTTP/HTTPS boot daha mantıklı |
+| **Windows 11 VM** | Nested virtualization ile çalıştırılacak | Guacamole üzerinden GUI erişimi mümkün; maksimum 2 VM aynı anda çalışacak |
+| **Linux VM’ler** | Gerektiğinde çalıştırılacak | Çoğunlukla kapalı; kaynak kullanımı düşük |
 
 ---
 
-## ✅ Püf Noktaları ve Öneriler
+## 4️⃣ Cloud Kaynak Önerisi (Minimum)
 
-- Tüm servisler **Docker Compose** ile yönetilmeli  
-- Ağ yapısı: `proxy` (Reverse Proxy + SSL), `internal` (Containerlar arası)  
-- SSL sertifikaları Let’s Encrypt ile tüm domainler için aktif  
-- ISO/IMG network boot için PXE/iPXE script menüsü oluşturulmalı  
-- Nested virtualization VM’leri diğer containerlardan kaynak paylaşımı açısından dikkatlice planlanmalı  
-- Mail sunucularında MX/SPF/DKIM ayarları yapılmalı, spam ve blacklist sorunlarına dikkat edilmeli  
-- Ana sayfa ve servis erişim logları düzenli kontrol edilmeli  
+- **Compute Engine:** n1-standard-4
+- **Disk:** 256 GB SSD
+- **RAM:** 15 GB (Windows 11 + Linux VM’leri için yeterli)
+- **CPU:** 4 vCPU (maksimum 2 VM aynı anda çalışacak şekilde)
 
 ---
 
+## 5️⃣ Local PC Hazırlıkları (Windows 11 DISM + Partition)
+
+### 5.1 Disk Partition Mantığı
+
+- GPT tabanlı, UEFI uyumlu
+- Partition planı (256 GB örneği):
+
+| Partition | Boyut (2^n MB) | Açıklama | Harf |
+|-----------|----------------|----------|------|
+| EFI       | 4.096 MB       | UEFI boot | – |
+| MSR       | 16 MB          | Microsoft Reserved | – |
+| System    | 131.072 MB     | Windows 11 + Programlar | C |
+| Data      | 65.536 MB      | Kullanıcı verisi | D |
+| Recovery  | Kalan (~43.478 MB) | WinRE veya WinPE | R |
+
+- Recovery partition **her zaman en sonda olacak** ve kalan alanı kapsayacak.
+- Tüm boyutlar **2^n MB’ye yuvarlanmış**.
+- DISKPART ile otomatik oluşturulabilir (batch + PowerShell scripti hazırlanabilir).
+
+### 5.2 DiskPart Batch Örneği
+
+- PowerShell ile disk boyutunu MB cinsinden alır, yüzdelik hesaplar ve 2^n’ye yuvarlar
+- Son kalan alan Recovery olarak atanır
+- DiskPart üzerinden otomatik uygulanır
+
+```batch
+:: DiskPart scripti örneği (özet)
+diskpart /s diskpart_script.txt
